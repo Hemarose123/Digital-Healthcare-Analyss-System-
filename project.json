@@ -1,0 +1,34 @@
+{
+  "overview": "AI Health Companion is a premium, full-featured AI-powered healthcare PWA with a stunning 3D landing page, multi-step onboarding, comprehensive health dashboard, and 13 feature modules — all stored securely on-chain via Motoko canisters.",
+  "features": [
+    "3D animated hero with neural network particle field",
+    "5-step onboarding flow with Internet Identity login",
+    "Animated AI Health Score dashboard",
+    "Mood Tracker with Recharts charts",
+    "AI Symptom Checker with traffic light severity",
+    "Diet Recommendation based on user profile",
+    "Exercise & Yoga video cards",
+    "Skin Disease Detection image upload",
+    "Medical Imaging Analysis",
+    "AI Chatbot with multi-language support",
+    "Voice Assistant with Web Speech API",
+    "Medicine Reminder with canister storage",
+    "Health Timeline chronological feed",
+    "Smart Prescription Scanner with OCR simulation",
+    "Habit Tracker with weekly charts",
+    "PDF Health Report download",
+    "Dark mode, mobile bottom nav, desktop sidebar"
+  ],
+  "category": "health",
+  "tags": [
+    "healthcare",
+    "ai",
+    "pwa",
+    "health-tracking",
+    "3d",
+    "charts",
+    "canister-storage",
+    "internet-identity"
+  ],
+  "last_updated": "2026-04-19T10:39:47.419Z"
+}

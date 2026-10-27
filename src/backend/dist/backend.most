@@ -1,0 +1,194 @@
+// Version: 1.0.0
+type AdherenceEntry__278591001 = {date : Text; taken : Bool};
+type ChatMessage__559859432 =
+  {
+    id : EntryId__144056575;
+    isBot : Bool;
+    language : Text;
+    message : Text;
+    timestamp : Timestamp__301639476
+  };
+type Data__791452850<K, V> =
+  {var count : Nat__490723111; kvs : [var ?(K, V)]};
+type DietFavorite__338630300 =
+  {
+    id : EntryId__144056575;
+    ingredients : Text;
+    mealName : Text;
+    mealType : Text;
+    nutritionalInfo : Text;
+    timestamp : Timestamp__301639476
+  };
+type EntryId__144056575 = Nat;
+type ExerciseCompletion__841923906 =
+  {
+    category : Text;
+    durationMins : Nat;
+    exerciseName : Text;
+    id : EntryId__144056575;
+    timestamp : Timestamp__301639476
+  };
+type HabitData__520120574 =
+  {
+    date : Text;
+    var sleepHours : Float;
+    var steps : Nat;
+    var waterGlasses : Nat
+  };
+type Internal__8484328<K, V> =
+  {children : [var ?Node__46230540<K, V>]; data : Data__791452850<K, V>};
+type Leaf__809889148<K, V> = {data : Data__791452850<K, V>};
+type Lifestyle__238911525 = {#active; #athletic; #sedentary};
+type List__415060402<T> = List__790383201<T>;
+type List__790383201<T> =
+  {
+    var blockIndex : Nat__490723111;
+    var blocks : [var [var ?T]];
+    var elementIndex : Nat__490723111
+  };
+type Map__158565046<K, V> = Map__297112838<K, V>;
+type Map__297112838<K, V> =
+  {var root : Node__46230540<K, V>; var size : Nat__490723111};
+type Map__605269027<K, V> = Map__158565046<K, V>;
+type MedicineReminder__401746224 =
+  {
+    var adherenceLog : [AdherenceEntry__278591001];
+    var dosage : Text;
+    var frequency : Text;
+    id : EntryId__144056575;
+    var isActive : Bool;
+    var name : Text;
+    var timeOfDay : Text
+  };
+type MoodEntry__676014845 =
+  {
+    id : EntryId__144056575;
+    moodLabel : Text;
+    moodValue : Nat;
+    note : ?Text;
+    timestamp : Timestamp__301639476
+  };
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Node__46230540<K, V> =
+  {#internal : Internal__8484328<K, V>; #leaf : Leaf__809889148<K, V>};
+type ParsedMedicine__584976388 =
+  {dosage : Text; frequency : Text; name : Text};
+type PrescriptionScan__580396743 =
+  {
+    extractedText : Text;
+    id : EntryId__144056575;
+    imageUrl : ?Text;
+    isSaved : Bool;
+    parsedMedicines : [ParsedMedicine__584976388];
+    timestamp : Timestamp__301639476
+  };
+type SeverityLevel__482098241 = {#green; #red; #yellow};
+type SymptomCheck__44555738 =
+  {
+    conditionSuggestions : [Text];
+    id : EntryId__144056575;
+    remedies : [Text];
+    severityLevel : SeverityLevel__482098241;
+    symptomText : Text;
+    timestamp : Timestamp__301639476
+  };
+type TimelineEvent__807210832 =
+  {
+    description : Text;
+    eventData : Text;
+    eventType : Text;
+    id : EntryId__144056575;
+    timestamp : Timestamp__301639476;
+    title : Text
+  };
+type Timestamp__301639476 = Int;
+type UserId__158757552 = Principal;
+type UserProfile__446616884 =
+  {
+    var age : Nat;
+    var createdAt : Timestamp__301639476;
+    var gender : Text;
+    var healthGoals : [Text];
+    var lifestyle : Lifestyle__238911525;
+    var name : Text;
+    var onboardingComplete : Bool
+  };
+actor {
+  stable chatState :
+    {
+      var root :
+        Node__46230540<UserId__158757552,
+                        List__415060402<ChatMessage__559859432>>;
+      var size : Nat__490723111
+    };
+  stable dietState :
+    {
+      var root :
+        Node__46230540<UserId__158757552,
+                        List__415060402<DietFavorite__338630300>>;
+      var size : Nat__490723111
+    };
+  stable exerciseState :
+    {
+      var root :
+        Node__46230540<UserId__158757552,
+                        List__415060402<ExerciseCompletion__841923906>>;
+      var size : Nat__490723111
+    };
+  stable habitState :
+    {
+      var root :
+        Node__46230540<UserId__158757552,
+                        Map__605269027<Text, HabitData__520120574>>;
+      var size : Nat__490723111
+    };
+  stable medicineState :
+    {
+      var root :
+        Node__46230540<UserId__158757552,
+                        List__415060402<MedicineReminder__401746224>>;
+      var size : Nat__490723111
+    };
+  stable moodState :
+    {
+      var root :
+        Node__46230540<UserId__158757552,
+                        List__415060402<MoodEntry__676014845>>;
+      var size : Nat__490723111
+    };
+  stable var nextChatId : Nat;
+  stable var nextDietId : Nat;
+  stable var nextExerciseId : Nat;
+  stable var nextMedicineId : Nat;
+  stable var nextMoodId : Nat;
+  stable var nextPrescriptionId : Nat;
+  stable var nextSymptomId : Nat;
+  stable var nextTimelineId : Nat;
+  stable prescriptionState :
+    {
+      var root :
+        Node__46230540<UserId__158757552,
+                        List__415060402<PrescriptionScan__580396743>>;
+      var size : Nat__490723111
+    };
+  stable profileState :
+    {
+      var root : Node__46230540<UserId__158757552, UserProfile__446616884>;
+      var size : Nat__490723111
+    };
+  stable symptomState :
+    {
+      var root :
+        Node__46230540<UserId__158757552,
+                        List__415060402<SymptomCheck__44555738>>;
+      var size : Nat__490723111
+    };
+  stable timelineState :
+    {
+      var root :
+        Node__46230540<UserId__158757552,
+                        List__415060402<TimelineEvent__807210832>>;
+      var size : Nat__490723111
+    }
+};

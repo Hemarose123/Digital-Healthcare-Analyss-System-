@@ -1,0 +1,149 @@
+type UserProfilePublic = 
+ record {
+   age: nat;
+   createdAt: Timestamp;
+   gender: text;
+   healthGoals: vec text;
+   lifestyle: Lifestyle;
+   name: text;
+   onboardingComplete: bool;
+ };
+type Timestamp = int;
+type TimelineEvent = 
+ record {
+   description: text;
+   eventData: text;
+   eventType: text;
+   id: EntryId;
+   timestamp: Timestamp;
+   title: text;
+ };
+type SymptomCheck = 
+ record {
+   conditionSuggestions: vec text;
+   id: EntryId;
+   remedies: vec text;
+   severityLevel: SeverityLevel;
+   symptomText: text;
+   timestamp: Timestamp;
+ };
+type SeverityLevel = 
+ variant {
+   green;
+   red;
+   yellow;
+ };
+type PrescriptionScan = 
+ record {
+   extractedText: text;
+   id: EntryId;
+   imageUrl: opt text;
+   isSaved: bool;
+   parsedMedicines: vec ParsedMedicine;
+   timestamp: Timestamp;
+ };
+type ParsedMedicine = 
+ record {
+   dosage: text;
+   frequency: text;
+   name: text;
+ };
+type MoodEntry = 
+ record {
+   id: EntryId;
+   moodLabel: text;
+   moodValue: nat;
+   note: opt text;
+   timestamp: Timestamp;
+ };
+type MedicineReminderPublic = 
+ record {
+   adherenceLog: vec AdherenceEntry;
+   dosage: text;
+   frequency: text;
+   id: EntryId;
+   isActive: bool;
+   name: text;
+   timeOfDay: text;
+ };
+type Lifestyle = 
+ variant {
+   active;
+   athletic;
+   sedentary;
+ };
+type HabitDataPublic = 
+ record {
+   date: text;
+   sleepHours: float64;
+   steps: nat;
+   waterGlasses: nat;
+ };
+type ExerciseCompletion = 
+ record {
+   category: text;
+   durationMins: nat;
+   exerciseName: text;
+   id: EntryId;
+   timestamp: Timestamp;
+ };
+type EntryId = nat;
+type DietFavorite = 
+ record {
+   id: EntryId;
+   ingredients: text;
+   mealName: text;
+   mealType: text;
+   nutritionalInfo: text;
+   timestamp: Timestamp;
+ };
+type ChatMessage = 
+ record {
+   id: EntryId;
+   isBot: bool;
+   language: text;
+   message: text;
+   timestamp: Timestamp;
+ };
+type AdherenceEntry = 
+ record {
+   date: text;
+   taken: bool;
+ };
+service : {
+  addChatMessage: (message: text, isBot: bool, language: text) -> (nat);
+  addDietFavorite: (mealName: text, mealType: text, ingredients: text,
+   nutritionalInfo: text) -> (nat);
+  addExerciseCompletion: (exerciseName: text, category: text, durationMins:
+   nat) -> (nat);
+  addMoodEntry: (moodValue: nat, moodLabel: text, note: opt text) -> (nat);
+  addSymptomCheck: (symptomText: text, conditionSuggestions: vec text,
+   remedies: vec text, severityLevel: SeverityLevel) -> (nat);
+  addTimelineEvent: (eventType: text, title: text, description: text,
+   eventData: text) -> (nat);
+  clearChatHistory: () -> ();
+  deleteAccount: () -> ();
+  deleteMedicineReminder: (id: EntryId) -> (bool);
+  getChatHistory: () -> (vec ChatMessage) query;
+  getDietFavorites: () -> (vec DietFavorite) query;
+  getExerciseCompletions: () -> (vec ExerciseCompletion) query;
+  getHabitData: () -> (vec HabitDataPublic) query;
+  getHealthTimeline: () -> (vec TimelineEvent) query;
+  getMedicineReminders: () -> (vec MedicineReminderPublic) query;
+  getMoodEntries: () -> (vec MoodEntry) query;
+  getPrescriptionScans: () -> (vec PrescriptionScan) query;
+  getSymptomChecks: () -> (vec SymptomCheck) query;
+  getUserProfile: () -> (opt UserProfilePublic);
+  markReminderTaken: (id: EntryId, date: text, taken: bool) -> (bool);
+  removeDietFavorite: (id: EntryId) -> (bool);
+  saveHabitData: (date: text, waterGlasses: nat, sleepHours: float64, steps:
+   nat) -> ();
+  saveMedicineReminder: (name: text, dosage: text, frequency: text,
+   timeOfDay: text) -> (nat);
+  savePrescriptionScan: (imageUrl: opt text, extractedText: text,
+   parsedMedicines: vec ParsedMedicine, isSaved: bool) -> (nat);
+  saveUserProfile: (name: text, age: nat, gender: text, lifestyle: Lifestyle,
+   healthGoals: vec text, onboardingComplete: bool) -> ();
+  updateMedicineReminder: (id: EntryId, name: text, dosage: text, frequency:
+   text, timeOfDay: text, isActive: bool) -> (bool);
+}

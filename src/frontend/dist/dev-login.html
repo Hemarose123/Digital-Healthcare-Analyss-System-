@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Redirecting to Dashboard...</title></head>
+<body>
+<script>
+  localStorage.setItem('health-store', JSON.stringify({
+    state: {
+      isAuthenticated: true,
+      userPrincipal: "demo-user",
+      userProfile: { name: "Alex Rivera", age: 28, gender: "male", height: 175, weight: 70 },
+      isOnboarded: true,
+      theme: "light",
+      isSidebarCollapsed: false
+    },
+    version: 0
+  }));
+  window.location.href = '/dashboard';
+</script>
+<p>Redirecting to dashboard...</p>
+</body>
+</html>

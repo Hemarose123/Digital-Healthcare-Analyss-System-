@@ -1,0 +1,728 @@
+import { c as createLucideIcon, r as reactExports, j as jsxRuntimeExports, b as AnimatePresence, m as motion, M as Mic, i as cn, B as Button, f as ue } from "./index-pQ9MGfeR.js";
+import { B as Badge } from "./badge-gNmD_EnI.js";
+import { S as Select, a as SelectTrigger, b as SelectValue, c as SelectContent, d as SelectItem } from "./select-CK-ODLGS.js";
+import { L as LoaderCircle } from "./loader-circle-BvT_2oqR.js";
+import { B as Bot, V as Volume2 } from "./volume-2-BBe5LnEL.js";
+import { A as ArrowRight } from "./arrow-right-BsPT0-Ie.js";
+import "./index-CH17oBHD.js";
+import "./index-B8fHxaj2.js";
+import "./index-ObNJZL0i.js";
+import "./chevron-down-C_l-fhry.js";
+import "./check-CqXS_8kJ.js";
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$1 = [
+  ["line", { x1: "2", x2: "22", y1: "2", y2: "22", key: "a6p6uj" }],
+  ["path", { d: "M18.89 13.23A7.12 7.12 0 0 0 19 12v-2", key: "80xlxr" }],
+  ["path", { d: "M5 10v2a7 7 0 0 0 12 5", key: "p2k8kg" }],
+  ["path", { d: "M15 9.34V5a3 3 0 0 0-5.68-1.33", key: "1gzdoj" }],
+  ["path", { d: "M9 9v3a3 3 0 0 0 5.12 2.12", key: "r2i35w" }],
+  ["line", { x1: "12", x2: "12", y1: "19", y2: "22", key: "x3vr5v" }]
+];
+const MicOff = createLucideIcon("mic-off", __iconNode$1);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode = [
+  [
+    "path",
+    {
+      d: "M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z",
+      key: "uqj9uw"
+    }
+  ],
+  ["line", { x1: "22", x2: "16", y1: "9", y2: "15", key: "1ewh16" }],
+  ["line", { x1: "16", x2: "22", y1: "9", y2: "15", key: "5ykzw1" }]
+];
+const VolumeX = createLucideIcon("volume-x", __iconNode);
+const VOICE_LOCALES = [
+  { value: "en-US", label: "English", flag: "🇺🇸", nativeName: "English" },
+  { value: "hi-IN", label: "Hindi", flag: "🇮🇳", nativeName: "हिंदी" },
+  { value: "ta-IN", label: "Tamil", flag: "🇮🇳", nativeName: "தமிழ்" },
+  { value: "te-IN", label: "Telugu", flag: "🇮🇳", nativeName: "తెలుగు" }
+];
+const SUGGESTIONS = {
+  "en-US": [
+    "Home remedy for cough",
+    "Natural ways to sleep",
+    "Ginger tea benefits",
+    "Remedy for bloating",
+    "Skin glow naturally",
+    "Boost immunity",
+    "Headache home remedy",
+    "Turmeric milk benefits"
+  ],
+  "hi-IN": [
+    "खांसी का घरेलू उपाय",
+    "नींद के प्राकृतिक तरीके",
+    "अदरक की चाय के फायदे",
+    "पेट फूलने का उपाय",
+    "त्वचा की चमक",
+    "रोग प्रतिरोधక क्षमता",
+    "सिरदर्द का उपाय",
+    "हल्दी दूध के फायदे"
+  ],
+  "ta-IN": [
+    "இருமல் வீட்டு வைத்தியம்",
+    "தூக்கத்திற்கான வழிகள்",
+    "இஞ்சி டீ நன்மைகள்",
+    "செரிமான உதவி",
+    "சரும பொலிவு",
+    "நோய் எதிர்ப்பு சக்தி",
+    "தலைவலி வைத்தியம்",
+    "மஞ்சள் பால் நன்மைகள்"
+  ],
+  "te-IN": [
+    "దగ్గు ఇంటి నివారణ",
+    "నిద్రకు సహజ మార్గాలు",
+    "అల్లం టీ ప్రయోజనాలు",
+    "జీర్ణక్రియ సహాయం",
+    "చర్మ సౌందర్యం",
+    "రోగనిరోధక శక్తి",
+    "తలనొప్పి నివారణ",
+    "పసుపు పాలు ప్రయోజనాలు"
+  ]
+};
+const SYSTEM_PROMPTS = {
+  "en-US": `You are DR.AI, a knowledgeable health assistant specializing in natural home remedies.
+- Respond ONLY in English.
+- Give 2-3 specific natural remedies using kitchen ingredients or simple stretches.
+- Keep it under 3 sentences.
+- Never diagnose. For serious symptoms, advise consulting a doctor.`,
+  "hi-IN": `आप DR.AI हैं, एक स्वास्थ्य सहायक जो प्राकृतिक घरेलू उपचारों में विशेषज्ञ हैं।
+- केवल हिंदी में उत्तर दें।
+- रसोई की सामग्री या सरल स्ट्रेच का उपयोग करके 2-3 विशिष्ट प्राकृतिक उपचार दें।
+- इसे 3 वाक्यों से कम रखें।
+- रोगों का निदान न करें। गंभीर लक्षणों के लिए डॉक्टर से मिलने की सलाह दें।`,
+  "ta-IN": `நீங்கள் DR.AI, இயற்கை வீட்டு வைத்தியத்தில் நிபுணத்துவம் பெற்ற ஒரு சுகாதார உதவியாளர்.
+- கேவலம் தமிழில் மட்டுமே பதில் சொல்லுங்கள்.
+- சமையலறை பொருட்கள் அல்லது எளிய பயிற்சிகளைப் பயன்படுத்தி 2-3 குறிப்பிட்ட இயற்கை வைத்தியங்களை வழங்கவும்.
+- 3 வாக்கியங்களுக்குள் வைக்கவும்.
+- நோய்களை கண்டறிய வேண்டாம். தீவிர அறிகுறிகளுக்கு மருத்துவரை அணுகவும்.`,
+  "te-IN": `మీరు DR.AI, సహజ ఇంటి నివారణలలో నిపుణులైన ఆరోగ్య సహాయకులు.
+- కేవలం తెలుగులో మాత్రమే సమాధానం ఇవ్వండి.
+- వంటగది పదార్థాలు లేదా సాధారణ వ్యాయామాలను ఉపయోగించి 2-3 నిర్దిష్ట సహజ నివారణలను ఇవ్వండి.
+- 3 వాక్యాల లోపు ఉంచండి.
+- వ్యాధులను నిర్ధారించవద్దు. తీవ్రమైన లక్షణాలకు డాక్టర్‌ను సంప్రదించండి.`
+};
+const FALLBACK_TIPS = {
+  "en-US": [
+    {
+      keywords: ["stress", "anxiety", "mental", "worry"],
+      tip: "Try the 4-7-8 breathing technique: inhale 4 counts, hold 7, exhale 8. It quickly calms your nervous system."
+    },
+    {
+      keywords: ["sleep", "insomnia", "tired", "rest"],
+      tip: "Keep a consistent sleep schedule. Avoid screens 1 hour before bed and keep your room cool and dark."
+    },
+    {
+      keywords: ["exercise", "workout", "fitness", "walk"],
+      tip: "A 30-minute brisk walk daily reduces cardiovascular disease risk significantly."
+    },
+    {
+      keywords: ["diet", "food", "eat", "nutrition", "healthy"],
+      tip: "Fill half your plate with vegetables, a quarter with lean protein, and a quarter with whole grains."
+    },
+    {
+      keywords: ["water", "hydration", "drink", "thirsty"],
+      tip: "Drink at least 8 glasses of water daily. It boosts energy, digestion, and skin health."
+    },
+    {
+      keywords: ["headache", "migraine", "head"],
+      tip: "Headaches are often caused by dehydration. Drink water and rest in a dark, quiet room."
+    },
+    {
+      keywords: ["heart", "blood pressure", "cardio"],
+      tip: "Reduce sodium, exercise regularly, and eat fiber-rich foods to keep your heart healthy."
+    },
+    {
+      keywords: ["digestion", "stomach", "gut", "bloat"],
+      tip: "Eat more fiber, stay hydrated, and include probiotic foods like yogurt to improve gut health."
+    }
+  ],
+  "hi-IN": [
+    {
+      keywords: ["तनाव", "चिंता", "मानसिक"],
+      tip: "4-7-8 श्वास तकनीक आज़माएं: 4 की गिनती पर श्वास लें, 7 पर रोकें, 8 पर छोड़ें।"
+    },
+    {
+      keywords: ["नींद", "थकान", "आराम"],
+      tip: "रोज़ एक ही समय पर सोएं। सोने से एक घंटे पहले स्क्रीन बंद करें।"
+    },
+    {
+      keywords: ["व्यायाम", "कसरत", "चलना"],
+      tip: "रोज़ 30 मिनट तेज़ चलने से हृदय रोग का खतरा काफी कम होता है।"
+    },
+    {
+      keywords: ["आहार", "खाना", "भोजन", "पोषण"],
+      tip: "थाली में आधी सब्ज़ियाँ, एक चौथाई प्रोटीन और एक चौथाई साबुत अनाज रखें।"
+    },
+    {
+      keywords: ["पानी", "पीना", "प्यास"],
+      tip: "रोज़ कम से कम 8 गिलास पानी पिएं। यह ऊर्जा और पाचन के लिए ज़रूरी है।"
+    },
+    {
+      keywords: ["सिरदर्द", "दर्द"],
+      tip: "सिरदर्द अक्सर पानी की कमी से होता है। पानी पिएं और अंधेरे कमरे में आराम करें।"
+    },
+    {
+      keywords: ["हृदय", "दिल", "ब्लड प्रेशर"],
+      tip: "नमक कम खाएं, रोज़ व्यायाम करें और फाइबर युक्त भोजन लें।"
+    },
+    {
+      keywords: ["पाचन", "पेट"],
+      tip: "फाइबर युक्त भोजन खाएं और दही जैसे प्रोबायोटिक खाद्य पदार्थ लें।"
+    }
+  ],
+  "ta-IN": [
+    {
+      keywords: ["மன அழுத்தம்", "கவலை", "மன"],
+      tip: "4-7-8 மூச்சுப்பயிற்சி: 4 எண்ணிக்கையில் சுவாசிக்கவும், 7-ல் நிறுத்தவும், 8-ல் மூச்சை வெளியிடவும்."
+    },
+    {
+      keywords: ["தூக்கம்", "உறக்கம்", "சோர்வு"],
+      tip: "ஒவ்வொரு நாளும் ஒரே நேரத்தில் தூங்கவும். படுக்கைக்கு முன் திரைகளை தவிர்க்கவும்."
+    },
+    {
+      keywords: ["உடற்பயிற்சி", "நடைபயிற்சி"],
+      tip: "தினமும் 30 நிமிடம் நடைபயிற்சி இதய நோய் அபாயத்தை குறைக்கும்."
+    },
+    {
+      keywords: ["உணவு", "சாப்பாடு", "ஊட்டச்சத்து"],
+      tip: "தட்டில் பாதி காய்கறிகள், கால் பங்கு புரதம், கால் பங்கு முழு தானியங்கள் வைக்கவும்."
+    },
+    {
+      keywords: ["தண்ணீர்", "நீர்", "தாகம்"],
+      tip: "தினமும் குறைந்தது 8 கிளாஸ் தண்ணீர் குடிக்கவும். இது சக்தி மற்றும் செரிமானத்திற்கு அவசியம்."
+    },
+    {
+      keywords: ["தலைவலி", "வலி"],
+      tip: "தலைவலி நீரிழப்பால் வரலாம். தண்ணீர் குடித்து இருட்டான அறையில் ஓய்வெடுங்கள்."
+    },
+    {
+      keywords: ["இதயம்", "ரத்த அழுத்தம்"],
+      tip: "உப்பை குறைத்து தினமும் உடற்பயிற்சி செய்யுங்கள்."
+    },
+    {
+      keywords: ["செரிமானம்", "வயிறு"],
+      tip: "நார்சத்து நிறைந்த உணவுகளை சாப்பிட்டு தயிர் போன்ற புரோபயோடிக் உணவுகளை சேர்க்கவும்."
+    }
+  ],
+  "te-IN": [
+    {
+      keywords: ["ఒత్తిడి", "ఆందోళన", "మానసిక"],
+      tip: "4-7-8 శ్వాస పద్ధతి: 4 లెక్కలకు తీసుకోండి, 7కు పట్టుకోండి, 8కు వదలండి."
+    },
+    {
+      keywords: ["నిద్ర", "అలసట", "విశ్రాంతి"],
+      tip: "ప్రతిరోజు ఒకే సమయానికి పడుకోండి. పడుకునే ముందు స్క్రీన్లు వదలండి."
+    },
+    {
+      keywords: ["వ్యాయామం", "నడక", "ఫిట్‌నెస్"],
+      tip: "రోజూ 30 నిమిషాలు నడక గుండె జబ్బుల ప్రమాదాన్ని తగ్గిస్తుంది."
+    },
+    {
+      keywords: ["ఆహారం", "భోజనం", "పోషణ", "తినడం"],
+      tip: "పళ్ళెంలో సగం కూరగాయలు, పాతిక ప్రోటీన్, పాతిక తృణధాన్యాలు వేసుకోండి."
+    },
+    {
+      keywords: ["నీరు", "త్రాగడం", "దాహం"],
+      tip: "రోజూ కనీసం 8 గ్లాసుల నీరు త్రాగండి. శక్తి మరియు జీర్ణక్రియకు అవసరం."
+    },
+    {
+      keywords: ["తలనొప్పి", "నొప్పి"],
+      tip: "తలనొప్పి తరచుగా నీరు తక్కువగా వల్ల వస్తుంది. నీరు త్రాగి చీకటి గదిలో విశ్రమించండి."
+    },
+    {
+      keywords: ["గుండె", "బిపి", "రక్తపోటు"],
+      tip: "ఉప్పు తగ్గించండి, రోజూ వ్యాయామం చేయండి, పీచు పదార్థాలు తిండి."
+    },
+    {
+      keywords: ["జీర్ణక్రియ", "కడుపు"],
+      tip: "పీచు పదార్థాలు తిండి, నీరు త్రాగండి, పెరుగు తీసుకోండి."
+    }
+  ]
+};
+function getFallbackResponse(transcript, locale) {
+  const lower = transcript.toLowerCase();
+  const tips = FALLBACK_TIPS[locale];
+  for (const item of tips) {
+    if (item.keywords.some((kw) => lower.includes(kw.toLowerCase())))
+      return item.tip;
+  }
+  const defaults = {
+    "en-US": "Stay healthy: eat balanced meals, drink enough water, exercise daily, and sleep 7–8 hours. Small consistent habits make a big difference!",
+    "hi-IN": "स्वस्थ रहें: संतुलित भोजन करें, पर्याप्त पानी पिएं, रोज़ व्यायाम करें और 7–8 घंटे सोएं।",
+    "ta-IN": "ஆரோக்கியமாக இருங்கள்: சமச்சீரான உணவு, போதுமான தண்ணீர், தினசரி உடற்பயிற்சி மற்றும் 7–8 மணி தூக்கம்!",
+    "te-IN": "ఆరోగ్యంగా ఉండండి: సమతుల్య ఆహారం, తగినంత నీరు, రోజువారీ వ్యాయామం మరియు 7–8 గంటల నిద్ర!"
+  };
+  return defaults[locale];
+}
+async function getAIResponse(transcript, locale) {
+  var _a;
+  const res = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      model: "claude-sonnet-4-20250514",
+      max_tokens: 1e3,
+      system: SYSTEM_PROMPTS[locale],
+      messages: [{ role: "user", content: transcript }]
+    })
+  });
+  if (!res.ok) throw new Error("API error");
+  const data = await res.json();
+  const text = ((_a = data.content) == null ? void 0 : _a.filter((b) => b.type === "text").map((b) => b.text).join("")) ?? "";
+  if (!text) throw new Error("Empty response");
+  return text;
+}
+function PulseRings({ active }) {
+  if (!active) return null;
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: [1, 2, 3].map((i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+    motion.span,
+    {
+      className: "absolute inset-0 rounded-full border-2 border-primary/40",
+      initial: { scale: 1, opacity: 0.6 },
+      animate: { scale: 1 + i * 0.35, opacity: 0 },
+      transition: {
+        duration: 1.8,
+        repeat: Number.POSITIVE_INFINITY,
+        delay: i * 0.4,
+        ease: "easeOut"
+      }
+    },
+    i
+  )) });
+}
+function VoicePage() {
+  const [isListening, setIsListening] = reactExports.useState(false);
+  const [transcript, setTranscript] = reactExports.useState("");
+  const [response, setResponse] = reactExports.useState("");
+  const [isSpeaking, setIsSpeaking] = reactExports.useState(false);
+  const [isLoading, setIsLoading] = reactExports.useState(false);
+  const [locale, setLocale] = reactExports.useState("en-US");
+  const [history, setHistory] = reactExports.useState([]);
+  const recognitionRef = reactExports.useRef(null);
+  const voicesRef = reactExports.useRef([]);
+  reactExports.useEffect(() => {
+    var _a;
+    const load = () => {
+      var _a2;
+      voicesRef.current = ((_a2 = window.speechSynthesis) == null ? void 0 : _a2.getVoices()) ?? [];
+    };
+    load();
+    (_a = window.speechSynthesis) == null ? void 0 : _a.addEventListener("voiceschanged", load);
+    return () => {
+      var _a2;
+      return (_a2 = window.speechSynthesis) == null ? void 0 : _a2.removeEventListener("voiceschanged", load);
+    };
+  }, []);
+  const isSupported = typeof window !== "undefined" && !!(window.SpeechRecognition || window.webkitSpeechRecognition);
+  const speakText = reactExports.useCallback((text, currentLocale) => {
+    if (!text || typeof window === "undefined" || !window.speechSynthesis)
+      return;
+    window.speechSynthesis.cancel();
+    let voices = window.speechSynthesis.getVoices();
+    if (voices.length === 0) {
+      setTimeout(() => speakText(text, currentLocale), 100);
+      return;
+    }
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = currentLocale;
+    utterance.rate = 0.9;
+    utterance.pitch = 1;
+    utterance.onstart = () => setIsSpeaking(true);
+    utterance.onend = () => setIsSpeaking(false);
+    utterance.onerror = (e) => {
+      console.error("TTS Error:", e);
+      setIsSpeaking(false);
+    };
+    const norm = currentLocale.toLowerCase().replace("_", "-");
+    const prefix = norm.split("-")[0];
+    const voice = voices.find((v) => v.lang.toLowerCase().replace("_", "-") === norm) ?? voices.find((v) => v.lang.toLowerCase().startsWith(prefix)) ?? voices.find((v) => {
+      const name = v.name.toLowerCase();
+      if (prefix === "ta") return name.includes("tamil");
+      if (prefix === "te") return name.includes("telugu");
+      if (prefix === "hi") return name.includes("hindi");
+      return false;
+    });
+    if (voice) {
+      utterance.voice = voice;
+      window.speechSynthesis.speak(utterance);
+    } else {
+      console.warn(
+        `No specific voice found for ${currentLocale}, attempting cloud fallback.`
+      );
+      const langCode = currentLocale.split("-")[0];
+      const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(text)}&tl=${langCode}&client=tw-ob`;
+      const audio = new Audio(audioUrl);
+      audio.onplay = () => setIsSpeaking(true);
+      audio.onended = () => setIsSpeaking(false);
+      audio.onerror = () => {
+        console.error("Cloud TTS Fallback failed");
+        setIsSpeaking(false);
+        window.speechSynthesis.speak(utterance);
+      };
+      audio.play().catch((err) => {
+        console.error("Audio play failed:", err);
+        setIsSpeaking(false);
+        window.speechSynthesis.speak(utterance);
+      });
+    }
+  }, []);
+  const handleTranscriptEnd = reactExports.useCallback(
+    async (text, currentLocale) => {
+      if (!text.trim()) return;
+      setIsLoading(true);
+      setResponse("");
+      let tip;
+      try {
+        tip = await getAIResponse(text, currentLocale);
+      } catch {
+        tip = getFallbackResponse(text, currentLocale);
+      }
+      setIsLoading(false);
+      setResponse(tip);
+      setHistory((prev) => [
+        {
+          id: `${Date.now()}`,
+          transcript: text,
+          response: tip,
+          timestamp: Date.now()
+        },
+        ...prev.slice(0, 9)
+      ]);
+      setTimeout(() => speakText(tip, currentLocale), 400);
+    },
+    [speakText]
+  );
+  function startListening() {
+    if (!isSupported) return;
+    const API = window.SpeechRecognition ?? window.webkitSpeechRecognition;
+    if (!API) return;
+    const rec = new API();
+    rec.lang = locale;
+    rec.continuous = false;
+    rec.interimResults = true;
+    rec.onresult = (e) => {
+      const t = Array.from({ length: e.results.length }, (_, i) => e.results[i]).map((r) => r[0].transcript).join("");
+      setTranscript(t);
+    };
+    rec.onend = () => {
+      setIsListening(false);
+      setTranscript((prev) => {
+        if (prev.trim()) handleTranscriptEnd(prev, locale);
+        return prev;
+      });
+    };
+    rec.onerror = () => {
+      setIsListening(false);
+      ue.error("Voice error. Please try again.");
+    };
+    recognitionRef.current = rec;
+    rec.start();
+    setIsListening(true);
+    setTranscript("");
+    setResponse("");
+  }
+  function stopListening() {
+    var _a;
+    (_a = recognitionRef.current) == null ? void 0 : _a.stop();
+    setIsListening(false);
+  }
+  function toggleListening() {
+    isListening ? stopListening() : startListening();
+  }
+  function stopSpeaking() {
+    var _a;
+    (_a = window.speechSynthesis) == null ? void 0 : _a.cancel();
+    setIsSpeaking(false);
+  }
+  function handleSuggestionClick(s) {
+    if (isListening || isLoading) return;
+    setTranscript(s);
+    handleTranscriptEnd(s, locale);
+  }
+  reactExports.useEffect(() => {
+    return () => {
+      var _a, _b;
+      (_a = recognitionRef.current) == null ? void 0 : _a.stop();
+      (_b = window.speechSynthesis) == null ? void 0 : _b.cancel();
+    };
+  }, []);
+  const localeInfo = VOICE_LOCALES.find((l) => l.value === locale);
+  const currentSuggestions = SUGGESTIONS[locale];
+  reactExports.useEffect(() => {
+    if (typeof window !== "undefined" && window.speechSynthesis) {
+      const checkVoices = () => {
+        const voices = window.speechSynthesis.getVoices();
+        const prefix = locale.split("-")[0];
+        const hasVoice = voices.some(
+          (v) => v.lang.toLowerCase().startsWith(prefix) || v.name.toLowerCase().includes(
+            prefix === "ta" ? "tamil" : prefix === "te" ? "telugu" : prefix === "hi" ? "hindi" : "english"
+          )
+        );
+        if (voices.length > 0 && !hasVoice && locale !== "en-US") {
+          ue.info(`Using Cloud Voice for ${localeInfo.label}`, {
+            description: "Native voice not found on system, switching to high-quality cloud backup."
+          });
+        }
+      };
+      checkVoices();
+      window.speechSynthesis.onvoiceschanged = checkVoices;
+    }
+  }, [locale, localeInfo.label]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "div",
+    {
+      "data-ocid": "voice.page",
+      className: "max-w-2xl mx-auto px-4 py-8 space-y-8",
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between bg-white/40 backdrop-blur-md p-6 rounded-3xl border border-white/20 shadow-subtle", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "font-display text-2xl font-bold text-slate-800 flex items-center gap-2", children: [
+              "Voice ",
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "gradient-text", children: "Assistant" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-slate-500 mt-0.5", children: "Ask any health query in your language" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            Select,
+            {
+              value: locale,
+              onValueChange: (v) => setLocale(v),
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(SelectTrigger, { className: "w-40 h-10 rounded-xl bg-white/80 border-slate-200 shadow-sm", children: /* @__PURE__ */ jsxRuntimeExports.jsx(SelectValue, {}) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(SelectContent, { className: "rounded-xl border-slate-100 shadow-xl", children: VOICE_LOCALES.map((l) => /* @__PURE__ */ jsxRuntimeExports.jsxs(SelectItem, { value: l.value, className: "text-xs", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "mr-2", children: l.flag }),
+                  l.nativeName
+                ] }, l.value)) })
+              ]
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-white/60 backdrop-blur-xl border border-white/40 rounded-[40px] shadow-elevated p-12 relative overflow-hidden group", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-3xl" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-0 left-0 w-32 h-32 bg-teal-500/5 rounded-full -ml-16 -mb-16 blur-3xl" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center gap-8 relative z-10", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative flex items-center justify-center", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(PulseRings, { active: isListening }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "button",
+                {
+                  type: "button",
+                  onClick: isSupported ? toggleListening : void 0,
+                  disabled: !isSupported || isLoading,
+                  className: cn(
+                    "relative z-10 w-32 h-32 rounded-full flex items-center justify-center transition-all duration-500 shadow-lg group-hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-primary/20 disabled:opacity-60 disabled:cursor-not-allowed",
+                    isListening ? "bg-gradient-to-br from-rose-500 to-orange-500 shadow-rose-200" : "gradient-primary shadow-primary/20"
+                  ),
+                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatePresence, { mode: "wait", children: isListening ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    motion.div,
+                    {
+                      initial: { scale: 0.5, opacity: 0 },
+                      animate: { scale: 1, opacity: 1 },
+                      exit: { scale: 0.5, opacity: 0 },
+                      children: /* @__PURE__ */ jsxRuntimeExports.jsx(MicOff, { className: "w-12 h-12 text-white" })
+                    },
+                    "off"
+                  ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    motion.div,
+                    {
+                      initial: { scale: 0.5, opacity: 0 },
+                      animate: { scale: 1, opacity: 1 },
+                      exit: { scale: 0.5, opacity: 0 },
+                      children: /* @__PURE__ */ jsxRuntimeExports.jsx(Mic, { className: "w-12 h-12 text-white" })
+                    },
+                    "on"
+                  ) })
+                }
+              )
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-center min-h-[4rem] px-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatePresence, { mode: "wait", children: isLoading ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              motion.div,
+              {
+                initial: { opacity: 0, y: 10 },
+                animate: { opacity: 1, y: 0 },
+                exit: { opacity: 0 },
+                className: "flex flex-col items-center gap-2",
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "w-6 h-6 text-primary animate-spin" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-slate-500 font-medium", children: "Getting health advice..." })
+                ]
+              },
+              "loading"
+            ) : isListening ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              motion.div,
+              {
+                initial: { opacity: 0, y: 10 },
+                animate: { opacity: 1, y: 0 },
+                exit: { opacity: 0, y: -10 },
+                className: "space-y-3",
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm font-bold text-rose-500 uppercase tracking-widest flex items-center gap-2 justify-center", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "w-2 h-2 rounded-full bg-rose-500 animate-ping" }),
+                    "Listening Now"
+                  ] }),
+                  transcript && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-slate-800 text-lg font-semibold max-w-sm mx-auto italic leading-tight", children: [
+                    '"',
+                    transcript,
+                    '"'
+                  ] })
+                ]
+              },
+              "listening"
+            ) : transcript ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              motion.div,
+              {
+                initial: { opacity: 0, y: 10 },
+                animate: { opacity: 1, y: 0 },
+                exit: { opacity: 0 },
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1", children: "Recognized" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-slate-700 text-base font-medium max-w-sm mx-auto", children: [
+                    '"',
+                    transcript,
+                    '"'
+                  ] })
+                ]
+              },
+              "transcript"
+            ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
+              motion.div,
+              {
+                initial: { opacity: 0 },
+                animate: { opacity: 1 },
+                exit: { opacity: 0 },
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-slate-500 text-sm font-medium", children: isSupported ? `Tap to speak in ${localeInfo.nativeName}` : "Voice features require Chrome or Edge" })
+              },
+              "idle"
+            ) }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Badge,
+              {
+                variant: "outline",
+                className: cn(
+                  "px-4 py-1.5 rounded-full border-2 text-[10px] font-bold uppercase tracking-widest transition-all duration-300",
+                  isListening ? "bg-rose-50 text-rose-500 border-rose-100" : isLoading ? "bg-amber-50 text-amber-500 border-amber-100" : "bg-primary/5 text-primary border-primary/10"
+                ),
+                children: isListening ? "● Recording Active" : isLoading ? "◌ Processing..." : "○ Ready to Listen"
+              }
+            )
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatePresence, { children: response && /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          motion.div,
+          {
+            initial: { opacity: 0, y: 20, scale: 0.95 },
+            animate: { opacity: 1, y: 0, scale: 1 },
+            exit: { opacity: 0, scale: 0.95 },
+            className: "relative",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-br from-primary/10 to-teal-500/10 blur-2xl -z-10 rounded-3xl" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-white/80 backdrop-blur-md border border-white rounded-[32px] shadow-elevated p-8", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between mb-6", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-10 h-10 rounded-xl gradient-primary flex items-center justify-center shadow-lg shadow-primary/20", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Bot, { className: "w-5 h-5 text-white" }) }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-sm font-bold text-slate-800 uppercase tracking-tight", children: "DR.AI" }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-[10px] text-slate-400 font-bold uppercase", children: [
+                        localeInfo.flag,
+                        " ",
+                        localeInfo.nativeName
+                      ] })
+                    ] })
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    Button,
+                    {
+                      variant: "ghost",
+                      size: "sm",
+                      className: cn(
+                        "h-10 rounded-xl px-4 flex items-center gap-2 transition-all",
+                        isSpeaking ? "bg-rose-50 text-rose-500 hover:bg-rose-100" : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                      ),
+                      onClick: isSpeaking ? stopSpeaking : () => speakText(response, locale),
+                      children: isSpeaking ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(VolumeX, { className: "w-4 h-4" }),
+                        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs font-bold uppercase", children: "Stop" })
+                      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(Volume2, { className: "w-4 h-4" }),
+                        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs font-bold uppercase", children: "Speak" })
+                      ] })
+                    }
+                  )
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-slate-50/50 rounded-2xl p-6 border border-slate-100", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-slate-700 text-base leading-relaxed font-medium", children: response }) })
+              ] })
+            ]
+          }
+        ) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 px-1", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-1 h-4 bg-primary rounded-full" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-display font-bold text-sm text-slate-800 uppercase tracking-wider", children: "Try Asking About..." })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-2 sm:grid-cols-4 gap-3", children: currentSuggestions.map((s) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            motion.button,
+            {
+              whileHover: { scale: 1.03 },
+              whileTap: { scale: 0.97 },
+              onClick: () => handleSuggestionClick(s),
+              disabled: isLoading || isListening,
+              className: "px-4 py-3 rounded-2xl bg-white border border-slate-100 shadow-sm text-xs font-bold text-slate-600 hover:border-primary hover:text-primary hover:shadow-md transition-all text-left flex items-center justify-between group disabled:opacity-50 disabled:cursor-not-allowed",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: s }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-primary" })
+              ]
+            },
+            s
+          )) })
+        ] }),
+        history.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4 pt-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 px-1", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-1 h-4 bg-slate-300 rounded-full" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-display font-bold text-sm text-slate-500 uppercase tracking-wider", children: "Recent Consultations" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3", children: history.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            motion.div,
+            {
+              initial: { opacity: 0, x: -10 },
+              animate: { opacity: 1, x: 0 },
+              className: "bg-white/40 border border-white/60 rounded-2xl p-5 hover:bg-white/60 transition-colors shadow-sm",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between mb-2", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(Mic, { className: "w-3 h-3 text-primary" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[10px] font-bold text-slate-400 uppercase", children: "Voice Interaction" })
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[10px] font-bold text-slate-400", children: new Date(item.timestamp).toLocaleTimeString([], {
+                    hour: "2-digit",
+                    minute: "2-digit"
+                  }) })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm font-bold text-slate-800 mb-2", children: [
+                  '"',
+                  item.transcript,
+                  '"'
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-slate-500 leading-relaxed line-clamp-2", children: item.response })
+              ]
+            },
+            item.id
+          )) })
+        ] })
+      ]
+    }
+  );
+}
+export {
+  VoicePage as default
+};
